@@ -1,0 +1,1 @@
+Simple endless slider based on transparensy of absolute positioned images.
