@@ -1,0 +1,51 @@
+main {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.page {
+    position: absolute;
+    width: 400px;
+    height: 250px;
+    /*margin: 0px auto;*/
+    top: 50%;
+    left: 50%;
+    font-size: 58px;
+    color: #fff;
+    text-align: center;
+    padding: 150px;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.page01 {
+    z-index: 17;
+    background: url('img/1c.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.page02 {
+    z-index: 16;
+    background-image: url('img/2c.jpg');
+}
+.page03 {
+    z-index: 15;
+    background: url('img/3c.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.page04 {
+    z-index: 14;
+    background: url('img/4c.jpg');
+}
+.page05 {
+    z-index: 13;
+    background: url('img/5c.jpg');
+}
+.page06 {
+    z-index: 12;
+    background: url('img/6c.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+}
