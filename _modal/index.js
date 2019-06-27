@@ -19,7 +19,7 @@ const modal = () => {
                 if(typeof fin === 'function') fin();
             }
         };
-        return animateOvertime;
+        return _animateOvertime;
     }
 
     loa.fadeOut = function (el, dur, fin) {
@@ -69,7 +69,7 @@ const modal = () => {
     openElement.forEach(item => {
       item.addEventListener('click', e => {
         e.preventDefault;
-
+        console.log('Hello!');
         openModal(modalWrapper);
       });
     });
@@ -84,5 +84,5 @@ const modal = () => {
   bindModal('.modal__open', '.modal__close', '.modal__wrapper', '.modal__content');
 
 
-}
+};
 

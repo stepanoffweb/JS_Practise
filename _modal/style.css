@@ -4,11 +4,12 @@ h1 {
 }
 
 a {
-    text-align: center;
+    display: inline-block;
 }
 
 .img__wrapper {
     padding-top: 50px;
+    text-align: center;
 }
 
 .main {
