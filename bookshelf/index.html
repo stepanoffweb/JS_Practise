@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
     <title>Bookshelf</title>
+    <link rel="stylesheet" href="style.css">
   </head>
   <body>
     <div class="container">
@@ -19,7 +20,7 @@
         </div>
         <div class="col-lg-12">
           <div class="row book-panel">
-            .
+
           </div>
         </div>
       </div>
@@ -50,13 +51,13 @@
           </div>
           <div class="form-group row">
             <label for="book-cover" class="col-sm-2 col-form-label">Cover:</label>
-            <div class="col-sm-10"><input type="text" name="book-cover" id="book-cover" value="alice.jpg" class="form-control"></div>
+            <div class="col-sm-10"><input type="text" name="book-cover" id="book-cover" value="./alice.jpg" class="form-control"></div>
           </div>
         </form>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Add book</button>
+        <button type="button" class="btn btn-primary" id="modal-add-book-ok">Add book</button>
       </div>
     </div>
   </div>
