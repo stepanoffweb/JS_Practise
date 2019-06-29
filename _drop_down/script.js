@@ -8,7 +8,7 @@ function closeMenu () {
     }
 }
 
-// document.getElementsByClassName('submenu').forEach((el) => el.style.display= 'none');
+// document.getElementsByClassName('submenu').forEach(el => el.style.display = 'none');
 
 document.getElementsByTagName('nav')[0].onmouseover = function(e) {
 	console.log(e.target);
