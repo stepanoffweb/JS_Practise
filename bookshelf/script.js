@@ -18,17 +18,17 @@ function addBookToLibrary() {
     drawBook(randomIndex);
 
 
- console.log(formData);
+ // console.log(formData);
 //  (4) [{…}, {…}, {…}, {…}]
 // 0: {name: "book-name", value: "Alice's Adventures In Wonderland"}
 // 1: {name: "book-author", value: "Lewis Carroll"}
 // 2: {name: "book-year", value: "1871"}
 // 3: {name: "book-cover", value: "alice.jpg"}
 
-console.log(bookArray);
+// console.log(bookArray);
 // [book-name: "Alice's Adventures In Wonderland", book-author: "Lewis Carroll", book-year: "1871", book-cover: "alice.jpg"]
 
-console.log(books);
+// console.log(books);
 // 59: [book-name: "Alice's Adventures In Wonderland", book-author: "Lewis Carroll", book-year: "1871", book-cover: "alice.jpg"]
 }
 
@@ -38,21 +38,32 @@ function drawBook(index) {
     div.setAttribute('data-index', index);
 
      let cover = document.createElement('div');
-        cover.className = 'book-cover';
-        cover.style.backgroundImage = `url(${books[index]['book-cover']})`;
+    cover.className = 'book-cover';
+    cover.style.backgroundImage = `url(${books[index]['book-cover']})`;
 
      let bookName = document.createElement('h4');
-        bookName.className = 'book-title';
-        bookName.innerHTML = books[index]['book-name'];
+    bookName.className = 'book-title';
+    bookName.innerHTML = books[index]['book-name'];
 
      let bookYear = document.createElement('p');
-        bookYear.className = 'book-year';
-        bookYear.innerHTML = books[index]['book-year'];
+    bookYear.className = 'book-year';
+    bookYear.innerHTML = books[index]['book-year'];
+
+    let buttonEdit = document.createElement('button');
+    buttonEdit.className =  "btn btn-success edit";
+    buttonEdit.innerHTML = "Edit";
+    buttonEdit.setAttribute('data-index', index);
+    buttonEdit.onclick = editBook;
 
     div.appendChild(cover);
     div.appendChild(bookName);
     div.appendChild(bookYear);
+    div.appendChild(buttonEdit);
 
     $('.book-panel').append(div);
+}
 
+function editBook() {
+    let data = $(this).attr('data-index');
+    console.log(data);
 }
