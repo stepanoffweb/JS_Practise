@@ -12,7 +12,7 @@ function addBookToLibrary() {
     }
 
     let index = $(this).attr('data-index');
-    if(index == undefined) {
+    if(index === undefined) {
         let randomIndex = Math.round(Math.random()*10000);
         books[randomIndex] = bookArray;
         drawBook(randomIndex);
@@ -68,6 +68,7 @@ function drawBook(index) {
         let buttonDelete = document.createElement('button');
         buttonDelete.className =  "btn btn-warning edit";
         buttonDelete.innerHTML = "Delete";
+        buttonDelete.setAttribute('data-index', index);
         buttonDelete.onclick = deleteBook;
 
         div.appendChild(cover);
@@ -88,7 +89,6 @@ function drawBook(index) {
         let bookAuthor = book.find('.book-author').eq(0);
         bookAuthor.html(books[index]['book-author'] );
         $('#modal-add-book-ok').removeAttr('data-index');
-
     }
 }
 
@@ -104,8 +104,9 @@ function editBook() {
 }
 
 function deleteBook() {
+    let index = $(this).attr('data-index');
     $(this).parent('.book').remove();
-    // books.pop(index);
+    delete books[index];
 }
 
 // https://www.google.com/url?sa=i&source=images&cd=&ved=2ahUKEwiY7NeqwJXjAhV15aYKHVOSBP8QjRx6BAgBEAU&url=http%3A%2F%2Ft2.gstatic.com%2Fimages%3Fq%3Dtbn%3AANd9GcSQbo47YugWSvYcEztHm7KdCCiRMcVWpH28eKfup7zJ2M7SwVV_&psig=AOvVaw0OP4G7B98d5rDYp5xW-cFP&ust=1562131733889050
