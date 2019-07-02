@@ -4,12 +4,13 @@ body {
 
 .book {
     text-align: center;
+    margin: 30px;
 }
 
 .book-cover {
     height: 500px;
-    width: 350px;
+    width: 380px;
     background-size: cover;
     background-repeat: no-repeat;
-    background-position: 50%;
+    /*background-position: 50%;*/
 }
