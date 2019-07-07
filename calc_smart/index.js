@@ -45,29 +45,40 @@ class Calculator {
             case '*':
                 computation = prev * current;
                 break;
-            case '&#x00F7;':
+            case '÷':
                 computation = prev / current;
                 break;
             default: return;
         }
         this.currentOperand = computation;
-                console.log('this.currentOperand '+ this.currentOperand);
         this.operation = undefined;
         this.prevOperand = '';
     }
 
     getDisplayNumber(number) {
-        const floatNumber = parseFloat(number);
-        if(isNaN(floatNumber)) return '';
-        return floatNumber.toLocaleString('en');
+        const strNum = number.toString();
+        const intDigits = parseFloat(strNum.split('.')[0]);
+        const decimalDigits = strNum.split('.')[1];
+        let intDisplay;
+        if(isNaN(intDigits)) {
+            intDisplay = '';
+        } else {
+            intDisplay = intDigits.toLocaleString('en', {maximumFractionDigits: 0});
+        }
+        if(decimalDigits != null) {
+            console.log('intDisplay1 = ""', intDisplay==='');
+            if(intDisplay === '') {intDisplay = 0;}
+            console.log('intDisplay2 ' + intDisplay);
+            return `${intDisplay}.${decimalDigits}`;
+        } else return intDisplay;
+
     }
 
     updateDisplay() {
         this.currentTextElement.innerText = this.getDisplayNumber(this.currentOperand);
         if(this.operation != null) {
-            this.previousTextElement.innerText = `${this.getDisplayNumber(this.currentOperand)} ${this.operation}`;
-
-        }
+            this.previousTextElement.innerText = `${this.getDisplayNumber(this.prevOperand)} ${this.operation}`;
+        } else {this.previousTextElement.innerText = '';}
     }
 }
 const numberBtns = document.querySelectorAll('[data-number]'),
