@@ -1,0 +1,89 @@
+body {
+    background-color: rgb(236, 214, 17);
+    font-size: 42px;
+}
+
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    width: 800px;
+    height: 500px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 180px;
+    text-align: center;
+}
+.timer {
+    display: flex ;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    height: 300px;
+    width: 100%;
+    font-size: 100px;
+    font-weight: bold;
+}
+.hours, .minutes, .seconds {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 30%;
+    height: 100%;
+
+}
+
+.colon {
+    position: relative;
+    display: -moz-flex;
+    display: -ms-flex;
+    display: -o-flex;
+    display: flex;
+    -ms-align-items: center;
+    align-items: center;
+    justify-content: center;
+    width: 5%;
+    height: 100%;
+}
+
+.colon:before, .colon:after {
+    content: '';
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background-color: #000;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translateX(-50%);
+            transform: translateX(-50%);
+}
+
+.colon:before {
+    -webkit-transform: translateY(-150%);
+            transform: translateY(-150%);
+}
+
+.colon:after {
+    -webkit-transform: translateY(50%);
+            transform: translateY(50%);
+}
+
+.buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    height: 100px;
+    width: 100%;
+
+}
+
+.buttons > .start, .buttons > .stop, .buttons > .reset {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 30%;
+    height: 100%;
+    border-radius: 50px;
+    background-color: red;
+}
