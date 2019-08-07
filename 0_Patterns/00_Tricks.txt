@@ -1,6 +1,0 @@
-!!!!Применение в верстке атрибутов 'data-' четко дифференцирует обработку скриптом от CSS = классов !!!!
-
--  'return' как способ выйти из func без выполнения при несоответствии условия:
-	foo(arg) { if(!arg) return;
-		//some code that completes when 'if' statement is not true;
-	}

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Validation</title>
+    <link rel="stylesheet" href="libs/validator/style.css">
+    <script src="libs/validator/validator.js"></script>
+</head>
+<body>
+    <div class="section">
+        <form  id="myForm">
+            <label for="email">Email</label>
+            <input type="text" id="email">
+            <label for="phone">Phone</label>
+            <input type="text" id="phone">
+            <br>
+            <button type="submit">Submit</button>
+            <button type="reset">Reset</button>
+        </form>
+
+        <script>
+        const valid = new Validator(
+        {
+            id: 'myForm',
+            pattern: {
+                phone: /^\+380\w{9}$/ //Ukraina,
+            },
+            method: {
+                'email': [
+                    ['notEmpty'],
+                    ['pattern', 'email']
+                ],
+                'phone': [
+                    ['notEmpty'],
+                    ['pattern', 'phone']
+                ]
+            }
+        })
+        </script>
+    </div>
+</body>
+</html>
