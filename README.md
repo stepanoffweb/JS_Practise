@@ -1,4 +1,4 @@
 # JS_Practise
 
 
-Initially the progect consisted of 5 folders: Coords, EventCss, ModalTimerMemory, ProgressbarTimer, getCharByKeypress. All of them are crude and need to be polished. After doing that I'll move them to the master branch (merge one by one).
+Initially, the project consisted of 5 folders: Coords, EventCss, ModalTimerMemory, ProgressbarTimer, getCharByKeypress. All of them are crude and need to be polished. After doing that I'll move them to the master branch (merge one by one).
