@@ -12,7 +12,6 @@ function toggleCheckbox() {
         }
     });
 }
-toggleCheckbox();
 // end checkbox
 // cart
 function toggleCart() {
@@ -29,7 +28,6 @@ function toggleCart() {
         document.body.style.overflow = '';
     });
 }
-toggleCart();
 // end cart
 
 //  interaction with goods
@@ -76,7 +74,62 @@ function goodsChange() {
         }
     }
 }
-goodsChange();
 // end interaction with goods
 
+function actionPage() {
+    const cards = document.querySelectorAll('.goods .card'),
+        discountCheckbox = document.getElementById('discount-checkbox'),
+        goods = document.querySelector('.goods'),
+        min = document.getElementById('min'),
+        max = document.getElementById('max'),
+        search = document.querySelector('.search-wrapper_input'),
+        searchBtn = document.querySelector('.search-btn');
+
+    discountCheckbox.addEventListener('click', () => {
+        cards.forEach((card) => {
+            if(discountCheckbox.checked && !card.querySelector('.card-sale')) {
+                card.parentNode.style.display = 'none';
+            } else {
+                card.parentNode.style.display = '';
+            }
+        });
+    });
+
+    // price filter
+    min.addEventListener('change', filterPrice);
+    max.addEventListener('change', filterPrice);
+
+    function filterPrice() {
+        cards.forEach((card) => {
+            const cardPrice = card.querySelector('.card-price'),
+                price = parseFloat(cardPrice.textContent);
+            if((min.value && price < min.value) || (max.value && price > max.value)) {
+                // instead of display:none we operate directly with DOM elements:
+                card.parentNode.remove();
+            } else {
+                goods.appendChild(card.parentNode);
+            }
+        });
+    }
+
+    // goods search
+    searchBtn.addEventListener('click', () =>  {
+        const searchText = new RegExp(search.value.trim(), 'i');
+        console.log(searchText); // regexpression is created
+        cards.forEach((card) => {
+            const title = card.querySelector('.card-title');
+            if(!searchText.test(title.textContent)) {
+                card.parentNode.style.display = 'none';
+            } else {
+                card.parentNode.style.display = '';
+            }
+        });
+        search.value = '';
+    });
+}
 // the filter "Акции"
+
+toggleCheckbox();
+toggleCart();
+goodsChange();
+actionPage();
