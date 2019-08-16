@@ -87,7 +87,7 @@ function actionPage() {
 
     discountCheckbox.addEventListener('click', () => {
         cards.forEach((card) => {
-            if(discountCheckbox.checked && !card.querySelector('.card-sale')) {
+            if (discountCheckbox.checked && !card.querySelector('.card-sale') || (card.parentNode.style.display === 'none')) {
                 card.parentNode.style.display = 'none';
             } else {
                 card.parentNode.style.display = '';
@@ -127,9 +127,85 @@ function actionPage() {
         search.value = '';
     });
 }
-// the filter "Акции"
+// the "Акции" filter
+// get data from the server
+function getData() {
+    const goodsWrapper = document.querySelector('.goods');
+    return fetch('../db/db.json')
+        .then((response) => {
+            if(response.ok) {
+                return response.json();
+            } else {
+                throw new Error("Данные не были получены, ошибка: "+ response.status);
+            }
+        })
+        .then(data => {return data;})
+        .catch((err) => {
+            console.warn(err);
+            goodsWrapper.innerHTML = '<h1 style="background-color: red; color:white; padding:50px">Упс, что-то пошло не так!</h1> ';
+        });
+}
 
-toggleCheckbox();
-toggleCart();
-goodsChange();
-actionPage();
+function renderCards(data){
+    const goodsWrapper = document.querySelector('.goods');
+    data.goods.forEach((good) => {
+        const card = document.createElement('div');
+        card.className = 'col-12 col-md-6 col-lg-4 col-xl-3';
+        card.innerHTML = `
+                        <div class="card" data-category="${good.category}">
+                            ${good.sale ? '<div class="card-sale">🔥Hot Sale🔥</div>' :''}
+                            <div class="card-img-wrapper">
+                                <span class="card-img-top"
+                                    style="background-image: url('${good.img}')"></span>
+                            </div>
+                            <div class="card-body justify-content-between">
+                                <div class="card-price">${good.price} ₽</div>
+                                <h5 class="card-title">Игровая приставка Sony PlayStation 3 Super Slim</h5>
+                                <button class="btn btn-primary">В корзину</button>
+                            </div>
+                        </div> `;
+        goodsWrapper.appendChild(card);
+    });
+}
+
+function renderCatalog() {
+    const cards = document.querySelectorAll('.goods .card'),
+        catalogWrapper = document.querySelector('.catalog'),
+        catalogList = document.querySelector('.catalog-list'),
+        catalogBtn = document.querySelector('.catalog-button'),
+        categories = new Set();
+
+    cards.forEach((card) => {
+        categories.add(card.dataset.category);
+    });
+    categories.forEach((item) => {
+        const li = document.createElement('li');
+        li.textContent = item;
+        catalogList.appendChild(li);
+    });
+    catalogBtn.addEventListener('click',(event) => {
+        if(!catalogWrapper.style.display) {
+            catalogWrapper.style.display = 'block';
+        } else {
+            catalogWrapper.style.display = '';
+        }
+        if(event.target.tagName === 'LI') {
+            cards.forEach((card) => {
+                if(card.dataset.category === event.target.textContent) {
+                    card.parentNode.style.display = '';
+                } else {
+                    card.parentNode.style.display = 'none';
+                }
+            });
+        }
+    });
+}
+
+getData().then((data) => {
+    renderCards(data);
+    toggleCheckbox();
+    toggleCart();
+    goodsChange();
+    renderCatalog();
+    actionPage();
+});
