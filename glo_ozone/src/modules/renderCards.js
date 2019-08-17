@@ -12,7 +12,7 @@ export default function renderCards(data) {
                             </div>
                             <div class="card-body justify-content-between">
                                 <div class="card-price">${good.price} ₽</div>
-                                <h5 class="card-title">Игровая приставка Sony PlayStation 3 Super Slim</h5>
+                                <h5 class="card-title">${good.title}</h5>
                                 <button class="btn btn-primary">В корзину</button>
                             </div>
                         </div> `;
