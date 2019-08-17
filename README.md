@@ -1,4 +1,4 @@
 # JS_Practise
 
-
-Initially, the project consisted of 5 folders: Coords, EventCss, ModalTimerMemory, ProgressbarTimer, getCharByKeypress. All of them are crude and need to be polished. After doing that I'll move them to the master branch (merge one by one).
+##glo_ozone
+Простой проект, демонстрирующий возможности JS при выполнении стандартных задач фронтенда: поиск, создание, удаление элементов DOM с применением элементов современного синтаксиса (arrow functions, spread operator, async/await) и модульный подход при работе с проектом со сборкой Webpack'ом.
