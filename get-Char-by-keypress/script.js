@@ -1,6 +1,4 @@
- <script>
-    // вспомогательная функция для получения символа из события keypress
-    // (вдруг понадобится))
+ <script>      
     function getChar(event) {
       if (event.which == null) {
         if (event.keyCode < 32) return null;
