@@ -51,7 +51,7 @@ Temporary Items
 # production
 /build
 /dist/
-**/css/
+
 
 # misc
 .env.local
@@ -67,5 +67,7 @@ yarn-error.log*
 **/assets
 **/*.psd
 **/*.txt
+**/*.pdf
+
 /**/_backstage
 /**/package-lock.json
