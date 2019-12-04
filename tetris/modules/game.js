@@ -3,8 +3,8 @@ export default class Game {
     score = 0;
     lines = 0;
     playfield = [
-        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 1, 0, 0, 0, 0, 0, 0],
+        [0, 0, 1, 1, 1, 0, 0, 0, 0, 0],
         [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
         [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
         [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
@@ -33,6 +33,7 @@ export default class Game {
             [0, 0, 0]
         ]
     };
+    // nextPiece = this.createPiece();
 
     movePieceLeft() {
         this.activePiece.x -= 1;
