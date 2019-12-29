@@ -23,7 +23,7 @@ ul {
 	user-select: none;
 }
 .sliderwprapper {
-	position: relative;
+	//position: relative;
 	left: 0;
 	top: 0;
 	margin: 0;
