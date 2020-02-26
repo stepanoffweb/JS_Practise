@@ -20,7 +20,6 @@ const main = (document => {
         return element;
     }
 
-
     function createTodoItem(title) {
         const checkbox = createElement('input', { type: 'checkbox', className: 'checkbox' });
         const label =  createElement('label', { className: 'title' }, title);
@@ -29,7 +28,7 @@ const main = (document => {
         const deleteButton =  createElement('button', { className: 'delete' }, 'Удалить');
         const listItem = createElement('li', { className: 'todo-item' }, checkbox, label, editInput, editButton, deleteButton);
 
-        // listItem.append(checkbox);// not appendChild but - works!?
+        // listItem.append(checkbox);// not appendChild works!
         // listItem.append(label);
         // listItem.append(editInput);
         // listItem.append(editButton);
@@ -84,7 +83,7 @@ const main = (document => {
 
     function addTodoItem(event) {
         event.preventDefault();
-        if(addInput == '') return alert ('Необходимо ввести название задачи!');
+        if(addInput.value == '') return alert ('Необходимо ввести название задачи!');
         const todoItem =  createTodoItem(addInput.value);
         todoList.appendChild(todoItem);
         addInput.value = '';

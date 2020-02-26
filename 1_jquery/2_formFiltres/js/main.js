@@ -1,5 +1,3 @@
-/* ====== Фильтры ===== */
-
 /* Фильтры форм в jQuery */
 
 // $('input').css('border', '1px solid red'); // Все поля input
