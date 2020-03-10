@@ -28,11 +28,11 @@ const main = (document => {
         const deleteButton =  createElement('button', { className: 'delete' }, 'Удалить');
         const listItem = createElement('li', { className: 'todo-item' }, checkbox, label, editInput, editButton, deleteButton);
 
-        // listItem.append(checkbox);// not appendChild works!
-        // listItem.append(label);
-        // listItem.append(editInput);
-        // listItem.append(editButton);
-        // listItem.append(deleteButton);
+        // listItem.appendChild(checkbox);
+        // listItem.appendChild(label);
+        // listItem.appendChild(editInput);
+        // listItem.appendChild(editButton);
+        // listItem.appendChild(deleteButton);
         bindEvents(listItem);
         return listItem;
 
