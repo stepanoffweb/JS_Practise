@@ -1,0 +1,23 @@
+<!DOCTYPE HTML>
+<html lang="ru">
+    <head>
+        <meta charset="utf-8">
+        <meta name="content" viewport="width=device-width, initial-scale=1.0">
+        <title>Progress Bar</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <div class="progressbar"></div>
+    </body>
+
+    <script src="script.js"></script>
+    <script>
+        new ProgressBar({end: 40, bg: 'yellow', textColor: 'purple', showText: false}).init('.progressbar');
+        const progressbar1 = new RoundedProgressBar({end: 80, bg: 'red', rounded: '10px'});
+        const progressbar2 = new ProgressBar;
+        progressbar1.init('.progressbar');
+        progressbar2.init('.progressbar');
+    </script>
+
+
+</html>
