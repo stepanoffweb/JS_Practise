@@ -105,11 +105,4 @@ window.addEventListener('DOMContentLoaded', () => {
     document.querySelector('.btn-3').addEventListener('click', initAxios, {
         'once': true
     });
-
-
-
-
-
-
-
 });
