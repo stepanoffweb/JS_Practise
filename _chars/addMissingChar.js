@@ -1,4 +1,4 @@
- <script>      
+
     function getChar(event) {
       if (event.which == null) {
         if (event.keyCode < 32) return null;
@@ -12,4 +12,3 @@
 
       return null; // специальная клавиша
     }
-    </script>
