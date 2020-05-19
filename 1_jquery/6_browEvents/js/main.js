@@ -12,9 +12,9 @@ $(window).unload(function(){
 	alert('Пользователь, пока!');
 }) // Выход со страницы !!! Chrom|Safari - игнорят!
 
-// $(window).resize(function(event) {
-// 	console.log('размеры окна изменены!')
-// });	// Изменение размера (например, окна)
+$(window).resize(function(event) {
+	console.log('размеры окна изменены!')
+});	// Изменение размера (например, окна)
 
 // $(window).scroll(function(event) {
 // 	console.log('Страница прокручена')
