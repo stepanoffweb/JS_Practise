@@ -1,9 +1,0 @@
-body {display: border-box;}
-img {
-    margin: 5px;
-    border : 1px solid #fff;
-}
-.bordered {
-    border: 1px solid #555;
-    box-shadow: 1px 1px 3px green;
-}
