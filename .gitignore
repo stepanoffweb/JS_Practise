@@ -59,6 +59,8 @@ Temporary Items
 .env.test.local
 .env.production.local
 
+**/.eslintrc
+
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
