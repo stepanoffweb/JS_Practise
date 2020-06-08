@@ -9,8 +9,6 @@ https://dimsemenov.com/plugins/magnific-popup/
 
 3.  Полноэкранное SVG modal 
 	https://codyhouse.co/gem/svg-modal-window/
-	
-  !!!В стилях можно поменять заливку fill: #...
 
 4.  jQuery:
 	1.  .hide|.show
