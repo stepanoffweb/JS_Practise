@@ -1,0 +1,15 @@
+body {
+    display: border-box;
+}
+
+img {
+    margin: 15px;
+    padding: -10px;
+    border : 1px solid #fff;
+}
+
+.bordered {
+    border: 1px solid gold;
+    border-radius: 50%;
+    box-shadow: 10px 10px 50px 50px gold;
+}
