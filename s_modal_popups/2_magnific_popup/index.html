@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Magnific Popup</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+
+<body>
+    <div class="container">
+        <a href="my-img.jpg" class="link image-link">Ссылка на модальное окно с картинкой</a>
+    </div>
+
+    <link rel="stylesheet" href="magnific-popup.css">
+    <!-- jQuery 1.7.2+ or Zepto.js 1.0+ -->
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <!-- Magnific Popup core JS file -->
+    <script src="jquery.magnific-popup.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('.image-link').magnificPopup({ type: 'image' });
+        });
+    </script>
+</body>
+
+</html>
