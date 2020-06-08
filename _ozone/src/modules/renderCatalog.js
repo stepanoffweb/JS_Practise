@@ -1,38 +1,38 @@
-import filter from './filter';
+import filter from './filter'
 
-export default function renderCatalog() {
-    const cards = document.querySelectorAll('.goods .card'),
-        catalogWrapper = document.querySelector('.catalog'),
-        catalogList = document.querySelector('.catalog-list'),
-        catalogBtn = document.querySelector('.catalog-button'),
-        categories = new Set(),
-        filterTitle = document.querySelector('.filter-title h5');
+export default function renderCatalog () {
+  const cards = document.querySelectorAll('.goods .card')
+  const catalogWrapper = document.querySelector('.catalog')
+  const catalogList = document.querySelector('.catalog-list')
+  const catalogBtn = document.querySelector('.catalog-button')
+  const categories = new Set()
+  const filterTitle = document.querySelector('.filter-title h5')
 
-    cards.forEach((card) => {
-        categories.add(card.dataset.category);
-    });
-    categories.forEach((item) => {
-        const li = document.createElement('li');
-        li.textContent = item;
-        catalogList.appendChild(li);
-    });
-    const allLi = catalogList.querySelectorAll('li');
-    catalogBtn.addEventListener('click', (event) => {
-        if (!catalogWrapper.style.display) {
-            catalogWrapper.style.display = 'block';
+  cards.forEach((card) => {
+    categories.add(card.dataset.category)
+  })
+  categories.forEach((item) => {
+    const li = document.createElement('li')
+    li.textContent = item
+    catalogList.appendChild(li)
+  })
+  const allLi = catalogList.querySelectorAll('li')
+  catalogBtn.addEventListener('click', (event) => {
+    if (!catalogWrapper.style.display) {
+      catalogWrapper.style.display = 'block'
+    } else {
+      catalogWrapper.style.display = ''
+    }
+    if (event.target.tagName === 'LI') {
+      allLi.forEach((elem) => {
+        if (elem === event.target) {
+          elem.classList.add('active')
         } else {
-            catalogWrapper.style.display = '';
+          elem.classList.remove('active')
         }
-        if (event.target.tagName === 'LI') {
-            allLi.forEach((elem) => {
-                if (elem === event.target) {
-                    elem.classList.add('active');
-                } else {
-                    elem.classList.remove('active');
-                }
-            });
-        }
-        filterTitle.textContent = event.target.textContent;
-        filter();
-    });
+      })
+    }
+    filterTitle.textContent = event.target.textContent
+    filter()
+  })
 }

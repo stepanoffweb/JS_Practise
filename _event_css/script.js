@@ -1,9 +1,9 @@
-document.addEventListener('click', function(e) {
-    e = event || window.event;
-    const target = e.target;
-    if(target.tagName == 'IMG') {
-        target.classList.contains('bordered') ? target.classList.remove('bordered') : target.classList.add('bordered') ;
-    }
+document.addEventListener('click', function (e) {
+  e = event || window.event
+  const target = e.target
+  if (target.tagName == 'IMG') {
+    target.classList.contains('bordered') ? target.classList.remove('bordered') : target.classList.add('bordered')
+  }
 })
 
 // target.style.display = 'none'

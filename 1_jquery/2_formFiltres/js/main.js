@@ -10,7 +10,7 @@
 // $('input:submit').css('border', '1px solid red'); // Кнопка "Отправить"
 // $('input:reset').css('border', '1px solid red'); // Кнопка "Сбросить"
 // $('input:image').css('border', '1px solid red'); // Кнопка-картинка
-//$('input:focus').css('box-shadow', '5px 2px 10px #f0f'); // Выбранное поле (состояние фокус) - скрипт отрабатывает до события
+// $('input:focus').css('box-shadow', '5px 2px 10px #f0f'); // Выбранное поле (состояние фокус) - скрипт отрабатывает до события
 // $('input:checked').css('border', '1px solid red'); // Выбранный чекбокс или радио-кнопка
- $('input:enabled').css('border', '1px solid red'); // Доступное поле
+$('input:enabled').css('border', '1px solid red') // Доступное поле
 // $('input:disabled').css('border', '1px solid red'); // Недоступное поле

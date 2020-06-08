@@ -1,6 +1,8 @@
-$(function() {
-	$('.folder').draggable();
-	$('.basket').droppable({ drop:function(){
-  $('.ui-draggable-dragging').remove();
-}});
-});
+$(function () {
+  $('.folder').draggable()
+  $('.basket').droppable({
+    drop: function () {
+      $('.ui-draggable-dragging').remove()
+    }
+  })
+})

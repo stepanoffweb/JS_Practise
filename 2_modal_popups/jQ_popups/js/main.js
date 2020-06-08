@@ -1,6 +1,6 @@
 /* Всё о всплывающих (модальных) окнах */
 
-/*$(document).ready(function() {
+/* $(document).ready(function() {
  	var modal = $('.popup'),
  					overlay = $('.overlay'),
  					link = $('button[data-popup="true"]'),
@@ -15,8 +15,7 @@
  	});
  });	*/ // Самый простой вариант всплывающего окна
 
-
-/*$(document).ready(function() {
+/* $(document).ready(function() {
  	var modal = $('.popup'),
  					overlay = $('.overlay'),
  					link = $('button[data-popup="true"]'),
@@ -31,43 +30,26 @@
  		overlay.show();
  		modal.toggleClass('popup_active');
  	});
- });*/	// Красивое появляение окна
+ }); */	// Красивое появляение окна
 
+$(document).ready(function () {
+ 	var modal = $('.popup')
+ 					var overlay = $('.overlay')
+ 					var link = $('button')
+ 					var close = $('.close-btn')
+ 					var fruitName = $('.fruit-name')
+  var $btn = ''
 
-$(document).ready(function() {
- 	var modal = $('.popup'),
- 					overlay = $('.overlay'),
- 					link = $('button'),
- 					close = $('.close-btn'),
- 					fruitName = $('.fruit-name'),
-                    $btn = '';
-
- 	close.click(function() {
- 		modal.toggleClass('popup_active');
-        $('.popup button').removeClass("btn-"+$btn);
- 		overlay.hide();
- 	});
+ 	close.click(function () {
+ 		modal.toggleClass('popup_active')
+    $('.popup button').removeClass('btn-' + $btn)
+ 		overlay.hide()
+ 	})
  	link.on('click', function () {
- 		fruitName.text($(this).attr('data-fruit'));
-        $btn = $(this).attr('data-btn');
-        $('.popup button').addClass("btn-"+$btn);
- 		overlay.show();
- 		modal.toggleClass('popup_active');
- 	});
- });// Много кнопок - одно окно
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+ 		fruitName.text($(this).attr('data-fruit'))
+    $btn = $(this).attr('data-btn')
+    $('.popup button').addClass('btn-' + $btn)
+ 		overlay.show()
+ 		modal.toggleClass('popup_active')
+ 	})
+})// Много кнопок - одно окно

@@ -1,23 +1,23 @@
 const requestUrl = 'https://jsonplaceholder.typicode.com/users'
 
-function sendRequest(method, url, body = null) { //возвращает промис
-    const headers ={
-        'Content-Type': 'application/json'
+function sendRequest (method, url, body = null) { // возвращает промис
+  const headers = {
+    'Content-Type': 'application/json'
+  }
+  return fetch(url, {
+    method: method,
+    body: JSON.stringify(body),
+    headers: headers
+  }).then(response => {
+    if (response.ok) {
+      return response.json()
     }
-    return fetch(url, {
-        method: method,
-        body: JSON.stringify(body),
-        headers: headers
-    }).then(response => {
-        if (response.ok) {
-          return response.json()
-        }
-        return response.json().then(error => {
-            const err = new Error('Что-то пошло не так')
-            err.data = error
-            throw err
-        })
+    return response.json().then(error => {
+      const err = new Error('Что-то пошло не так')
+      err.data = error
+      throw err
     })
+  })
 }
 
 // sendRequest('GET', requestUrl, )
@@ -25,10 +25,10 @@ function sendRequest(method, url, body = null) { //возвращает пром
 //     .catch(err => console.log(err))
 
 const somebody = {
-    name: 'Vasiliy',
-    age: 55
+  name: 'Vasiliy',
+  age: 55
 }
 
 sendRequest('POST', requestUrl, somebody)
-    .then(data => console.log(data))
-    .catch(err => console.log(err))
+  .then(data => console.log(data))
+  .catch(err => console.log(err))

@@ -1,5 +1,5 @@
 class View {
-    constructor(viewModel) {
-        this.viewModel = viewModel;
-    }
+  constructor (viewModel) {
+    this.viewModel = viewModel
+  }
 }

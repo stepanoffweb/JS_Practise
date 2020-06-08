@@ -1,21 +1,21 @@
 class Model {
-    constructor() {
+  constructor () {
 
-    }
+  }
 
-    add() {
+  add () {
 
-    }
+  }
 
-    get() {
-        
-    }
+  get () {
 
-    update() {
+  }
 
-    }
+  update () {
 
-    remove() {
+  }
 
-    }
+  remove () {
+
+  }
 }
