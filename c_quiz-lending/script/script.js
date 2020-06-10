@@ -12,6 +12,7 @@ document.addEventListener('DOMContentLoaded', function () {
   const burgerBtn = document.getElementById('burger')
   const modalTitle = document.querySelector('.modal-title')
 
+  //  firebase app initialization
   const firebaseConfig = {
     apiKey: 'AIzaSyBaavsz5aWElIbhuMDTKX1WqQCc3MYMMzk',
     authDomain: 'burgerjs-47aa2.firebaseapp.com',
@@ -24,6 +25,7 @@ document.addEventListener('DOMContentLoaded', function () {
   }
   firebase.initializeApp(firebaseConfig)
 
+  //  getting DB from firebase  & put it in the render function (with preloader)
   const getData = () => {
     formAnswers.textContent = 'LOADING'
     prevBtn.classList.add('d-none')
@@ -59,6 +61,7 @@ document.addEventListener('DOMContentLoaded', function () {
     modalBlock.classList.add('d-block')
     getData()
   })
+
   btnOpenModal.addEventListener('click', () => {
     modalBlock.classList.add('d-block')
     getData()
@@ -69,11 +72,38 @@ document.addEventListener('DOMContentLoaded', function () {
     modalBlock.classList.remove('d-block')
   })
 
+  //  main question pages navigation, conditional rendering & request sending function
   const insertFormContent = (questions) => {
-    let index = 0
-    const answersBank = []
-    const itemAnswers = {}
+    let index = 0 // index of modal page
+    const itemAnswers = {} //user's data object for every question page
+    const answersBank = [] // all user's data for DB update
 
+    nextBtn.onclick = () => {
+      checkAnswer()
+      index++
+      renderQuizForm(index)
+    }
+
+    prevBtn.onclick = () => {
+      answersBank.pop()
+      index--
+      renderQuizForm(index)
+    }
+
+    sendBtn.onclick = () => {
+      checkAnswer()
+      // answersBank = [{...itemAnswers}]
+      for (const key in itemAnswers) {
+        const obj = {}
+        obj[key] = itemAnswers[key]
+        answersBank.push(obj)
+      }
+      firebase.database().ref().child('contacts').push(answersBank)
+      index++
+      renderQuizForm(index)
+    }
+
+    // getting the user's data from every question page & put them into 'itemAnswers' object
     const checkAnswer = () => {
       const checkedInputs = [...formAnswers.elements].filter((input) => input.checked || input.id === 'phoneNumber')
       checkedInputs.forEach((input, i) => {
@@ -83,13 +113,12 @@ document.addEventListener('DOMContentLoaded', function () {
           itemAnswers['Phone number'] = input.value
         }
       })
-      // answersBank.push(itemAnswers)
     }
 
     const renderQuizForm = (index) => {
       formAnswers.innerHTML = ''
-      // question.textContent = ''
       const module = questions[index]
+
       const answersRender = () => {
         module.answers.forEach((answer, i) => {
           const answerItem = document.createElement('div')
@@ -154,30 +183,5 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     renderQuizForm(index)
-
-    nextBtn.onclick = () => {
-      checkAnswer()
-      index++
-      renderQuizForm(index)
-    }
-
-    prevBtn.onclick = () => {
-      answersBank.pop()
-      index--
-      renderQuizForm(index)
-    }
-
-    sendBtn.onclick = () => {
-      checkAnswer()
-      // answersBank = [{...itemAnswers}]
-      for (const key in itemAnswers) {
-        const obj = {}
-        obj[key] = itemAnswers[key]
-        answersBank.push(obj)
-      }
-      firebase.database().ref().child('contacts').push(answersBank)
-      index++
-      renderQuizForm(index)
-    }
   }
 })
