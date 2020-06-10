@@ -4,6 +4,8 @@
  - ветки с префиксом s_ - модули с несколькими простыми взамиосвязанными операциями (simple)
  - ветки с префиксом е_ - папки с наборои однотипных атомарных операций (elementary)
  <hr />
+ [![JavaScript Style Guide](https://cdn.rawgit.com/standard/standard/master/badge.svg)](https://github.com/standard/standard)
+
 
 ## c_glo_ozone
 Простой проект, демонстрирующий возможности JS при выполнении стандартных задач фронтенда: поиск, создание, удаление элементов DOM с применением элементов современного синтаксиса (arrow functions, spread operator, async/await) и модульный подход при работе с проектом со сборкой Webpack'ом.
