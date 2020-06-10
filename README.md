@@ -3,6 +3,7 @@
  - ветки с префиксом с_ содержат комплексные проекты с законченным функционалом (complex)
  - ветки с префиксом s_ - модули с несколькими простыми взамиосвязанными операциями (simple)
  - ветки с префиксом е_ - папки с наборои однотипных атомарных операций (elementary)
+ 
  [![JavaScript Style Guide](https://cdn.rawgit.com/standard/standard/master/badge.svg)](https://github.com/standard/standard)
  <hr />
 
