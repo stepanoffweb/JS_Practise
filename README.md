@@ -1,4 +1,4 @@
-<div style="text-justify: space-between">
+<div style="text-align: justify">
  # JS_Practise [![JavaScript Style Guide](https://cdn.rawgit.com/standard/standard/master/badge.svg)](https://github.com/standard/standard) 
 </div>
 
