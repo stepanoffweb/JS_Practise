@@ -1,10 +1,10 @@
-# JS_Practise
+# JS_Practise  [![JavaScript Style Guide](https://cdn.rawgit.com/standard/standard/master/badge.svg)](https://github.com/standard/standard)
  Содержание проекта подразделяется на ветки с отдельными работоспособными приложениями/ паттернами с законченным функционалом. There will be my own samples of the most common JavaScript tasks (sliders, accordions, tabs, modal windows etc.)
  - ветки с префиксом с_ содержат комплексные проекты с законченным функционалом (complex)
  - ветки с префиксом s_ - модули с несколькими простыми взамиосвязанными операциями (simple)
  - ветки с префиксом е_ - папки с наборои однотипных атомарных операций (elementary)
  
- [![JavaScript Style Guide](https://cdn.rawgit.com/standard/standard/master/badge.svg)](https://github.com/standard/standard)
+
  <hr />
 
 
