@@ -13,7 +13,7 @@
     margin: 0 auto;
     border: 1px solid #eee;
     border-radius: 5px;
-    transform: translateY(-200px);
+    transform: translateY(-250px);
     background: #fff;
     transition:  transform .5s ease-in;
 }
@@ -49,4 +49,7 @@
 }
 .modal-close {
     cursor: pointer;
+}
+.destroy {
+    display: none;
 }
