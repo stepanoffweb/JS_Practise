@@ -5,7 +5,9 @@
     bottom: 0;
     top: 0;
     background: rgba(0,0,0, 0);
-    transition:  background .5s ease-in;
+    transition:  background .2s ease-in;
+    z-index: -1;
+    opacity: 0;
 }
 
 .modal-window {
@@ -15,7 +17,16 @@
     border-radius: 5px;
     transform: translateY(-250px);
     background: #fff;
-    transition:  transform .5s ease-in;
+    transition:  transform .2s ease-in;
+    z-index: -1;
+    opacity: 0;
+}
+.smodal.active .modal-overlay,
+.smodal.active .modal-window,
+.smodal.closing .modal-overlay,
+.smodal.closing .modal-window  {
+    z-index: 999;
+    opacity: 1;
 }
 .smodal.active .modal-overlay {
     background: rgba(0,0,0, .5);
