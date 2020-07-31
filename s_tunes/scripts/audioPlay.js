@@ -15,7 +15,21 @@ export const audioPlayInit = () => {
   const playlist = ['hello', 'flow', 'speed']
   let trackIndex = 0
   const track = () => playlist[trackIndex]
-  // console.log('track', track())
+
+  const updateTime = () => {
+    const duration = audioPlayer.duration
+    const currentTime = audioPlayer.currentTime
+    const progress = (currentTime / duration) * 100
+
+    audioProgressTiming.style.width = progress + '%'
+    const minutesPassed = Math.floor(currentTime / 60) || '0'
+    const secondsPassed = Math.floor(currentTime % 60) || '0'
+    const minutesTotal = Math.floor(duration / 60) || '0'
+    const secondsTotal = Math.floor(duration % 60) || '0'
+
+    audioTimePassed.textContent = `${addZero(minutesPassed)}:${addZero(secondsPassed)}`
+    audioTimeTotal.textContent = `${addZero(minutesTotal)}:${addZero(secondsTotal)}`
+  }
 
   const loadTrack = () => {
     const isPaused = audioPlayer.paused
@@ -28,10 +42,14 @@ export const audioPlayInit = () => {
     } else {
       audioPlayer.play()
     }
+
+    setTimeout(() => { // костыль для отображения дины трека при переключении на новую дорожку после ее загрузки
+      updateTime()
+    }, 0)
   }
 
   const prevTrack = () => {
-    if (trackIndex !== 0) {
+    if (trackIndex) {
       trackIndex--
     } else {
       trackIndex = playlist.length - 1
@@ -74,20 +92,7 @@ export const audioPlayInit = () => {
     audioPlayer.play()
   })
 
-  audioPlayer.addEventListener('timeupdate', () => {
-    const duration = audioPlayer.duration
-    const currentTime = audioPlayer.currentTime
-    const progress = (currentTime / duration) * 100
-
-    audioProgressTiming.style.width = progress + '%'
-    const minutesPassed = Math.floor(currentTime / 60) || '0'
-    const secondsPassed = Math.floor(currentTime % 60) || '0'
-    const minutesTotal = Math.floor(duration / 60) || '0'
-    const secondsTotal = Math.floor(duration % 60) || '0'
-
-    audioTimePassed.textContent = `${addZero(minutesPassed)}:${addZero(secondsPassed)}`
-    audioTimeTotal.textContent = `${addZero(minutesTotal)}:${addZero(secondsTotal)}`
-  })
+  audioPlayer.addEventListener('timeupdate', updateTime  )
 
   audioProgress.addEventListener('click', e => {
     const x = e.offsetX
@@ -96,6 +101,15 @@ export const audioPlayInit = () => {
 
     audioPlayer.currentTime = progress
   })
+
+  audioPlayInit.pause = () => {
+    if (!audioPlayer.paused) {
+      audioPlayer.pause()
+      audio.classList.toggle('play')
+      audioBtnPlay.classList.toggle('fa-play')
+      audioBtnPlay.classList.toggle('fa-pause')
+    }
+  }
 
 }
 

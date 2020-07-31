@@ -43,7 +43,7 @@ export const videoPlayInit = () => {
   videoPlayer.addEventListener('timeupdate', () => {
     const currentTime = videoPlayer.currentTime
     const duration = videoPlayer.duration// в секундах с 6 знаками после зпт
-    console.log(currentTime)
+    // console.log(currentTime)
 
     videoProgress.value = (currentTime / duration) * 100
     let minutesPassed = Math.floor(currentTime / 60)
@@ -71,6 +71,12 @@ export const videoPlayInit = () => {
     videoPlayer.volume = videoVolume.value / 100
   })
   // videoVolume.value = 30 // перебить установки в html
+
+  videoPlayInit.pause = () => {
+    if (!videoPlayer.paused) {
+      videoPlayer.pause()
+    }
+  }
 
 }
 // глюки: - капризный ползунок (после второго клика - назад только по дабл ... !change срабатывает после отпускания -> input)

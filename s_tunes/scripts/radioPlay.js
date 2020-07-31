@@ -53,5 +53,12 @@ export const radioPlayInit = () => {
     changePlayIcon()
   })
 
+   radioPlayInit.pause = () => {
+     if (!audio.paused) {
+      audio.pause()
+      changePlayIcon()
+     }
+   }
+
 
 }

@@ -13,6 +13,11 @@ const deactivatePlayer = () => {
     title.style.display = 'none'
     playBtn.forEach(btn => btn.classList.remove('active'))
     playBlock.forEach(block => block.classList.remove('active'))
+
+    // console.dir(audioPlayInit)
+    videoPlayInit.pause()
+    radioPlayInit.pause()
+    audioPlayInit.pause()
 }
 
 playBtn.forEach((btn, i) => {
