@@ -1,4 +1,4 @@
-import {addZero} from './support.js'
+import { addZero } from './support.js'
 
 export const videoPlayInit = () => {
   const videoPlayer = document.querySelector('.video-player')
@@ -12,7 +12,7 @@ export const videoPlayInit = () => {
 
   // console.log(videoPlayer)
   const toggleIcon = () => {
-    if(videoPlayer.paused) {
+    if (videoPlayer.paused) {
       videoBtnPlay.classList.remove('fa-play')
       videoBtnPlay.classList.add('fa-pause')
     } else {
@@ -46,15 +46,14 @@ export const videoPlayInit = () => {
     // console.log(currentTime)
 
     videoProgress.value = (currentTime / duration) * 100
-    let minutesPassed = Math.floor(currentTime / 60)
-    let secondsPassed = Math.floor(currentTime % 60)
+    const minutesPassed = Math.floor(currentTime / 60)
+    const secondsPassed = Math.floor(currentTime % 60)
 
-    let minutesTotal = Math.floor(duration / 60)
-    let secondsTotal = Math.floor(duration % 60)
+    const minutesTotal = Math.floor(duration / 60)
+    const secondsTotal = Math.floor(duration % 60)
 
     videoTimePassed.textContent = `${addZero(minutesPassed)}:${addZero(secondsPassed)}`
     videoTimeTotal.textContent = `${addZero(minutesTotal)}:${addZero(secondsTotal)}`
-
   })
 
   videoProgress.addEventListener('change', () => {
@@ -77,7 +76,6 @@ export const videoPlayInit = () => {
       videoPlayer.pause()
     }
   }
-
 }
 // глюки: - капризный ползунок (после второго клика - назад только по дабл ... !change срабатывает после отпускания -> input)
 // в полноэкраноом режиме не отвечает по клику на тело (зато ползунок - отлично работает)

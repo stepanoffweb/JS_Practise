@@ -1,4 +1,4 @@
-import {addZero} from './support.js'
+import { addZero } from './support.js'
 
 export const audioPlayInit = () => {
   const audio = document.querySelector('.audio')
@@ -65,7 +65,7 @@ export const audioPlayInit = () => {
     loadTrack()
   }
 
-  audioNav.addEventListener('click', ({target}) => {
+  audioNav.addEventListener('click', ({ target }) => {
     if (target.classList.contains('audio-button__play')) {
       audio.classList.toggle('play')
       audioBtnPlay.classList.toggle('fa-play')
@@ -92,7 +92,7 @@ export const audioPlayInit = () => {
     audioPlayer.play()
   })
 
-  audioPlayer.addEventListener('timeupdate', updateTime  )
+  audioPlayer.addEventListener('timeupdate', updateTime)
 
   audioProgress.addEventListener('click', e => {
     const x = e.offsetX
@@ -110,6 +110,4 @@ export const audioPlayInit = () => {
       audioBtnPlay.classList.toggle('fa-pause')
     }
   }
-
 }
-

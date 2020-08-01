@@ -28,7 +28,7 @@ export const radioPlayInit = () => {
     el.classList.add('select')
   }
 
-  radioNav.addEventListener('click', ({target}) => {
+  radioNav.addEventListener('click', ({ target }) => {
     // console.log('target: ', target) // срабатывает на img хотя он не включен в input! тоесть - ДВА target!???
     const parent = target.closest('.radio-item')
     selectItem(parent)
@@ -39,7 +39,7 @@ export const radioPlayInit = () => {
     radioCoverImg.src = imgUrl
 
     radioStop.disabled = false // создаем поле и присваиваем значение (в html его НЕТ!)
-    audio.src =  target.dataset.radioStation // data-attrs
+    audio.src = target.dataset.radioStation // data-attrs
     audio.play()
     changePlayIcon()
   })
@@ -53,12 +53,10 @@ export const radioPlayInit = () => {
     changePlayIcon()
   })
 
-   radioPlayInit.pause = () => {
-     if (!audio.paused) {
+  radioPlayInit.pause = () => {
+    if (!audio.paused) {
       audio.pause()
       changePlayIcon()
-     }
-   }
-
-
+    }
+  }
 }
