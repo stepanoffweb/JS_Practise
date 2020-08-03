@@ -1,5 +1,4 @@
 Element.prototype.insertAfter = function (elem) {
-  // console.log('this ', this);
   elem.parentNode.insertBefore(this, elem.nextSibling)
 }
 const noop = () => {}
@@ -56,38 +55,33 @@ $.modal = function (options) {
       closing = true
       $modal.classList.add('closing')
       $modal.classList.remove('active')
-        setInterval(() => {
+        setTimeout(() => {
         $modal.classList.remove('closing')
         closing = false
+        if (typeof options.onClose === 'function') {
+          options.onClose()
+        }
       }, ANIMATION_SPEED)
     }
   }
-  // const listener = e => {
-  //   if (e.target.dataset.close) {
-  //     modal.close()
-  //   }
-  // }
+  const listener = e => {
+    if (e.target.dataset.close) {
+      modal.close()
+    }
+  }
 
-  // document.addEventListener('click', listener)
-  let node, listener
+  document.addEventListener('click', listener)
   return Object.assign(modal, {
     destroy () {
-      // $modal.parentNode.removeChild($modal)
-      node.parentNode.removeChild(node)
+      $modal.parentNode.removeChild($modal)
       document.removeEventListener('click', listener)
-      // isDestroyed = true
+      isDestroyed = true
     },
     setContent (html) {
       document.querySelector('[data-content]').innerHTML = html
     },
     setHeader (html) {
       document.querySelector('[data-header]').innerHTML = html
-    },
-    getNode (target) {
-      node = target
-    },
-    // getListener (listener) {
-    //   listener = listener
-    // }
+    }
   })
 }
