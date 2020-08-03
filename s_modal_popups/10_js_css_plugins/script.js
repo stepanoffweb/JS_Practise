@@ -2,6 +2,9 @@ const myModal = $.modal({
   title: 'Hello!',
   closable: true,
   content: '<h1>Hello! I\'m a new content!</h1>',
+  close () {
+    myModal.close()
+  },
   width: '400px',
   btns: [
   // {text: 'Показать цену', type: 'primary', handler: () => {
@@ -20,12 +23,15 @@ const myModal = $.modal({
 const modalDelete = $.modal({
   title: 'Warning!!!',
   content: '<h1>Do you wanna delete the card?</h1>',
+  close () {
+    modalDelete.close()
+  },
   btns: [
     {
       text: 'Cancel',
       type: 'primary',
       handler () {
-        modalDelete.close()
+        modalDelete.close() // ??? обращение к самому себе - создаваемому объекту... по адресу хз
       }
     },
     {
@@ -46,7 +52,7 @@ const cards = [
 ]
 
 const listener = {}
-cards.forEach(card => {
+const render = () => {cards.forEach(card => {
   const wrapper = document.createElement('div')
   wrapper.classList.add('col')
   wrapper.insertAdjacentHTML('afterbegin', `
@@ -55,17 +61,18 @@ cards.forEach(card => {
   <div class="card-body">
     <h5 class="card-title">${card.text}</h5>
     <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-    <a href="#" class="btn btn-primary" data-price="price" >Show price</a>
-    <a href="#" class="btn btn-danger" data-delete="delete" >Delete</a>
+    <a href="#" class="btn btn-primary" data-btn="price" >Show price</a>
+    <a href="#" class="btn btn-danger" data-btn="delete" >Delete</a>
    </div>
    </div> `)
-  listener[card.id] = (e) => {
-    if (e.target.dataset.price) {
+  listener[card.id] = e => { // нерационально - лучше слушать весь документ, так ка обработчики абсолютно одинаковые
+    e.preventDefault()
+    if (e.target.dataset.btn === 'price') {
       myModal.open()
       myModal.setContent(`Price is: <b style="font-size: 1.5rem"> ${card.price}$ </b>`)
       myModal.setHeader(card.text)
-    }
-    if (e.target.dataset.delete) {
+    } // зачем нужен else ?
+    if (e.target.dataset.btn === 'delete') {
       modalDelete.open()
       modalDelete.setContent(`<h1>Do you wanna delete the ${card.text} card?</h1>`)// не работает...
       modalDelete.getNode(e.target.parentNode.parentNode.parentNode)
@@ -74,4 +81,5 @@ cards.forEach(card => {
   }
   wrapper.addEventListener('click', listener[card.id])
   document.querySelector('.cards').appendChild(wrapper)
-})
+})}
+render()

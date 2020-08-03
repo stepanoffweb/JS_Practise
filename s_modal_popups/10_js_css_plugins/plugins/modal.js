@@ -36,6 +36,7 @@ const _createModal = function (options) {
     </div>`)
   const footer = _createFooter(data.btns)
   footer.insertAfter(modal.querySelector('[data-content]'))
+  modal.querySelectorAll('[data-close]').forEach(el => el.onclick = data.close)
   document.body.appendChild(modal)
   return modal
 }
@@ -55,7 +56,7 @@ $.modal = function (options) {
       closing = true
       $modal.classList.add('closing')
       $modal.classList.remove('active')
-      setInterval(() => {
+        setInterval(() => {
         $modal.classList.remove('closing')
         closing = false
       }, ANIMATION_SPEED)
@@ -85,8 +86,8 @@ $.modal = function (options) {
     getNode (target) {
       node = target
     },
-    getListener(listener) {
-      listener = listener
-    }
+    // getListener (listener) {
+    //   listener = listener
+    // }
   })
 }

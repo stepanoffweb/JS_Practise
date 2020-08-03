@@ -64,3 +64,6 @@
 .destroy {
     display: none;
 }
+.card {
+    max-width: 250px
+}
