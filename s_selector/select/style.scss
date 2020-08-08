@@ -1,0 +1,67 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+
+body {
+    font-family: 'Roboto', sans-serif;
+}
+
+.app {
+    display: flex;
+    padding-top: 5rem;
+    justify-content: center;
+}
+ .wrap {
+    width: 500px;
+ }
+
+ $height: 46px;
+.select {
+    &.open {
+        .select-dropdown {
+            display: block;
+        }
+        .select-input {
+            border-bottom: none;
+        }
+    }
+    width: 100%;
+    position: relative;
+    &-input {
+        display: flex;
+        justify-content: space-between;
+        height: $height;
+        border: 1px solid #ccc;
+        border-radius: .2rem;
+        align-items: center;
+        padding: 0 1rem;
+        cursor: pointer;
+    }
+    &-dropdown {
+        display: none;
+        position: absolute;
+        border: 1px solid #ccc;
+        border-radius: .2rem;
+        left: 0;
+        right: 0;
+        top: $height;
+        max-height: 200px;
+        overflow-y: auto;
+        box-shadow: 2px 3px 5px rgba(0,0,0,.3);
+    }
+    &-list {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+    }
+    &-item {
+        padding: .5rem;
+        border-bottom: 1px solid #ccc;
+        &:hover {
+            background-color: #eee;
+            cursor: pointer;
+            transition: background-color .15s ease-in;
+        }
+        &.selected {
+            background-color: bisque;
+        }
+    }
+}
