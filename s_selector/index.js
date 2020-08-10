@@ -8,9 +8,14 @@ const answers = [
 {id: 4, value: 'tenebrous'},
 {id: 5, value: 'malapropism'},
 ]
+const placeholder = 'ловкость рук, фокусы, ловкий обман, надувательство'
+
 const select = new Select('#select', {
-  placeholder: '',
+  placeholder,
   data: answers,
+  onSelect(item) {
+    // console.log(item)
+  }
 })
 
 window.s = select

@@ -24,11 +24,12 @@ export class Select {
 
   openHandler(e) {
     const {type, id} = e.target.dataset
-    // console.log(type)
     if (type === 'input') {
       this.toggle()
     } else if (type === 'item') {
       this.select(id)
+    } else if (type === 'backdrop') {
+      this.close()
     }
   }
 
@@ -37,7 +38,6 @@ export class Select {
   }
 
   get current() {
-    // console.log('current', this.options.data)
     return this.options.data.find(item => item.id === this.selectedId)
   }
 
@@ -47,6 +47,7 @@ export class Select {
 
     this.$el.querySelectorAll(`[data-type="item"]`).forEach( i => i.classList.remove('selected'))
     this.$el.querySelector(`[data-id="${id}"]`).classList.add('selected')
+    this.options.onSelect ? this.options.onSelect(this.current) : null
     this.close()
   }
 
@@ -74,9 +75,9 @@ export class Select {
 
 // const DEFAULT_PLACEHOLDER = 'Choose the item'
 
-const _getTemplate = (data = [], placeholder) => {
+const _getTemplate = (data = [], placeholder = 'choose an answer') => {
 
-  const text = placeholder || 'ловкость рук, фокусы, ловкий обман, надувательство'
+  const text = placeholder
   const list = data.map(i => `<li class="select-item" data-type="item" data-id=${i.id}>${i.value}</li>`)
 
   return ` <div class="select-backdrop" data-type="backdrop"></div>
