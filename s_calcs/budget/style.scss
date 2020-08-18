@@ -1,0 +1,39 @@
+.budget-wrap {
+  width: 80%;
+  min-width: 500px;
+  margin: 50px auto;
+  border: 1px solid #cecece;
+  height: 80%;
+  background-color: #7FEBD9;
+}
+.insert {
+    flex-basis: 80%;/*
+    flex-grow: 0;
+    flex-shrink: 0;*/
+    margin: 1rem 0;
+}
+.inputs {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  height: 500px;
+  &__budget {
+  }
+  &__expense-item {
+  }
+  &__expense-amount {
+  }
+}
+.add {
+}
+.summaries {
+  &__text {}
+  &__icon {}
+  &__num {}
+}
+.row {
+}
+.expenses {
+  &__title {}
+  &__value {}
+}
