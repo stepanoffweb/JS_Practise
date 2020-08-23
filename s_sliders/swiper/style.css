@@ -29,17 +29,23 @@
     flex-wrap: wrap;
     margin-left: 60px;
 }
-.slider__subitem {
+.slider-subitem {
     display: flex;
     flex-basis: 50%;
     align-items: flex-start;
+}
+.slider-subitem:last-child {
+    flex-basis: 90%;
+    margin-top: 45px;
 }
 
 .slider__item-title {
     flex-basis: 100%;
 }
 .slider__item-image {}
-.subitem-description {}
+.subitem-description {
+    /* display: flex; */
+}
 .subitem-title {
     margin: 0;
     margin-bottom: 7px;
