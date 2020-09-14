@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Координаты мыши выводим на экран</title>
+    <style>
+        body {display: border-box;}
+        #test {
+            margin: 50px auto;
+            width: 500px;
+            height: 500px;
+            border : 1px solid black;
+        }
+        #progress-bar {
+            margin: 100px 50px;
+            height: 50px;
+            width: 400px;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="test">
+        <progress id="progress-bar"  max="100"></progress>
+
+    </div>
+
+    <script >
+        function progressbar(t) {
+            let mark = 0;
+            t = Math.round(t*10);
+            let progress = setInterval(function() {
+                if(mark >100) {
+                    clearInterval(progress);
+                } else {
+                    document.getElementById('progress-bar').value = mark;
+                }
+                mark++;
+            }, t);
+        }
+
+        progressbar(15);
+    </script>
+</body>
+</html>

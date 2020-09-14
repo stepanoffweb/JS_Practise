@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Hearts Flow</title>
+        <style>
+            body {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                min-height: 100vh;
+                font-size: 20px;
+                font-weight: bold;
+                color: rebeccapurple;
+                background-color: #5f5f5f;
+            }
+            .heart {
+                /* background-color: brown; */
+                position: fixed;
+                top: -10vh;
+                transform: translateY(0) rotate(-45deg);
+                animation: flow 3s linear forwards;
+            }
+
+            @keyframes flow {
+                to {
+                    transform: translateY(115vh) rotate(-45deg);
+                }
+            }
+        </style>
+    </head>
+    <body>
+    </body>
+
+    <script>
+        function createHeart() {
+            const heart = document.createElement('div')
+            heart.innerText = '💖'
+            heart.classList.add('heart')
+            document.body.appendChild(heart)
+            heart.style.left = Math.random() * 100 + 'vw'
+            heart.style.transform = `scale(${Math.random() * 2}) rotate(${Math.random() * 90}deg)`
+            heart.style.animationDuration = Math.random() * 2 + 3 + 's'
+            setTimeout(() => {
+                heart.remove()
+            }, 5000)
+        }
+        setInterval(createHeart, 100)
+    </script>
+</html>

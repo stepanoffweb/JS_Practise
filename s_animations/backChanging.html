@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Changing Background</title>
+        <style>
+            body {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                min-height: 100vh;
+                font-size: 80px;
+                font-weight: bold;
+                color: rebeccapurple;
+                background-color: #5f5f5f;
+            }
+            .wrapper {
+                width: 800px;
+                height: 200px;
+                padding: 30px;
+                border: 1px solid transparent;
+                border-radius: 20%;
+                background-color: silver;
+            }
+
+        </style>
+    </head>
+    <body>
+        <div class="wrapper"></div>
+    </body>
+
+    <script>
+        setInterval(() => {
+            let background = `hsl(${Math.floor(Math.random() * 360)}, 100%, 50%)`
+            document.getElementsByClassName('wrapper')[0].style.background = background
+        }, 150)
+
+    </script>
+</html>

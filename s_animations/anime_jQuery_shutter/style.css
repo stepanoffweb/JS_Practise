@@ -1,0 +1,25 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.box {
+  position: relative;
+  background-color: #CCC;
+  height: 50px;
+}
+
+.hide {
+  display: none;
+  position: absolute;
+  background-color: beige;
+  height: 100%;
+  width: 100%;
+  top: 0;
+}
+
+.btn {
+  background-color: azure;
+  height: 50px;
+  cursor: pointer;
+}

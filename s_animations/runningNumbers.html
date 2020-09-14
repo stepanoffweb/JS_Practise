@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Running Numbers</title>
+        <style>
+            body {
+                font-size: 80px;
+                font-weight: bold;
+                color: #f66;
+            }
+            .nums-wrapper {
+                margin: 250px auto;
+                width: 800px;
+                height: 150px;
+                display: flex;
+                text-align: center;
+                justify-content: space-around;
+            }
+            span {
+                display: inline-block;
+                width: 150px;
+                line-height: 150px;
+                border: 1px solid #000;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="nums-wrapper">
+            <span class="num--1">8</span>
+            <span class="num--2">9</span>
+            <span class="num--3">6</span>
+            <span class="num--4">7</span>
+            <span class="num--5">4</span>
+        </div>
+    </body>
+
+    <script>
+        let nums = document.querySelectorAll('span');
+
+        nums.forEach(function(num) {
+          let valMax = +num.textContent;
+          let val = 0;
+          let interval = setInterval ( () =>
+            {
+            val++;
+            if (val == valMax){
+              clearInterval(interval);
+            }
+            num.innerText = val.toString();
+          }, 500);
+        });
+    </script>
+</html>
