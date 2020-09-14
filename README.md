@@ -1,4 +1,4 @@
-#s_animation
+# s_animation
  * progressBar изменение progress.value через setInterval
  * words_change 
  	- вместо цикла - setInterval
